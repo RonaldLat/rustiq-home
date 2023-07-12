@@ -10,7 +10,6 @@ let products=reactive([])
 readData('furniture').then((data)=> data.forEach(d=>products.push(d.data())))
 console.log( products)
 
-uploadImage()
 
 
 </script>

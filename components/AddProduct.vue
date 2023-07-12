@@ -21,10 +21,11 @@
 </template>
 
 <script setup>
+const { uploadImage} = useFirestoreStorage()
 const {addData}= useFirestore()
 const collectionRef = 'furniture'
 
-const productName = ref('');
+const productName = ref('');11
 const productPrice = ref(0);
 const productQuantity = ref(0);
 const productImage = ref(null);
@@ -41,6 +42,7 @@ const addProduct = () => {
     quantity: productQuantity.value,
     image: productImage.value,
   };
+//  uploadImage(product.image)
   addData(collectionRef, product)
 
   // Do something with the product object (e.g., send it to a server)
@@ -51,5 +53,6 @@ const addProduct = () => {
   productQuantity.value = 0;
   productImage.value = null;
 };
+uploadImage()
 </script>
 

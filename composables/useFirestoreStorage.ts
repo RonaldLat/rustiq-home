@@ -1,15 +1,19 @@
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref as storageRef, uploadBytes,getStorage, getDownloadURL } from "firebase/storage";
 
 
 export default function() {
   const { $storage } = useNuxtApp()
-  //const imagesRef = ref($storage, 'inventory/');
-  const imagesRef = 'hii'
+  const storeRef = storageRef($storage, 'lll')
+  //const imagesRef = storageRef ($storage, 'invntory');
 
 
 
   const uploadImage=()=>{
-    console.log(imagesRef)
+
+// 'file' comes from the Blob or File API
+console.log(storeRef)
+
+
   }
 
 
