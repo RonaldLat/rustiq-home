@@ -1,5 +1,6 @@
 <script setup>
-const { registerUser } = useFirebaseAuth() // auto-imported
+
+const { registerUser, withGoogleRedirect, withGooglePopup } = useFirebaseAuth() // auto-imported
 
 
 const creds = reactive({
@@ -22,6 +23,10 @@ const creds = reactive({
                 <button type="submit">Submit</button>
             </form>
         </div>
+
+        <h3>Sign in with ?</h3>
+        <button @click.prevent="withGoogleRedirect">Sign In With Google</button><br/>
+        <button @click.prevent="withGooglePopup" >In With Popup</button>
     </div>
 
 </template>
