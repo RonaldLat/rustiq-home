@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider,signInWithRedirect, signInWithPopup, User} from 'firebase/auth'
+import { createUserWithEmailAndPassword, GoogleAuthProvider,signInWithRedirect, signInWithPopup, User, onAuthStateChanged, signOut} from 'firebase/auth'
 
 export default function() {
   const { $auth } = useNuxtApp()
@@ -49,10 +49,28 @@ export default function() {
   })
  }
 
+ const checkAuthState = () => {
+   return
+};
+
+const logoutUser = ()=>{
+  signOut($auth).then(() => {
+  // Sign-out successful.
+  console.log('Sign out')
+}).catch((error) => {
+  console.log('Cannot Sign out')
+  // An error happened.
+});
+
+}
+
   return {
-    user,
     registerUser,
     withGoogleRedirect,
-    withGooglePopup
+    withGooglePopup,
+    checkAuthState,
+    logoutUser,
+    user
+
   }
 }
