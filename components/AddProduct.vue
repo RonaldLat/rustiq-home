@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-const {addData}= useFirestore()
 const collectionRef = 'furniture'
 
 const productName = ref('');

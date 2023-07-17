@@ -1,15 +1,11 @@
 <script setup>
 
-const { registerUser, withGoogleRedirect, withGooglePopup } = useFirebaseAuth() // auto-imported
 
 
 const creds = reactive({
   email: "mynam@lll.com",
   password: "lssseee"
 })
- async function handleRegistration() {
-   await registerUser(creds.email, creds.password)
-}
 
 </script>
 

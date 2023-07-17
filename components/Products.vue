@@ -1,13 +1,10 @@
 <script setup>
-const {addData, readData}= useFirestore()
-const { uploadImage} = useFirestoreStorage()
 const data={
 first: 'alan',
 last: 'west',
 born: 2021
 }
 let products=reactive([])
-readData('furniture').then((data)=> data.forEach(d=>products.push(d.data())))
 
 uploadImage()
 

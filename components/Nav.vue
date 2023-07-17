@@ -1,5 +1,4 @@
 <script setup>
-const {user, logoutUser, } = useFirebaseAuth()
 
 let showMenu = ref(false);
 const toggleNav = () => (showMenu.value = !showMenu.value);
