@@ -1,5 +1,5 @@
 <template>
     <div>
-  <Login/>
+        <p>This is your account</p>
     </div>
 </template>

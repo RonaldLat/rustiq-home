@@ -6,7 +6,6 @@ born: 2021
 }
 let products=reactive([])
 
-uploadImage()
 
 
 </script>

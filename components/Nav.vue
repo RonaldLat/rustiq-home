@@ -1,9 +1,23 @@
 <script setup>
+const user = useSupabaseUser()
+const client = useSupabaseAuthClient()
+
+
 
 let showMenu = ref(false);
-const toggleNav = () => (showMenu.value = !showMenu.value);
+onMounted(()=>{
+    watchEffect(()=>{
+        if(!user.value){
+            console.log('logged out')
+        }else{
+        console.log(user.value.email)
+        }
+
+    })
+})
 //logoutUser()
-console.log(user)
+
+//const { data: { user } } = await supabase.auth.getUser()
 
 </script>
 
@@ -28,7 +42,7 @@ console.log(user)
             md:text-2xl
             hover:text-indigo-400
           "
-          >{{user}}
+          >Home
         </nuxt-link>
         <!-- Mobile menu button -->
         <div @click="toggleNav" class="flex md:hidden">
@@ -61,7 +75,7 @@ console.log(user)
         "
       >
 
-        <li @click="logoutUser" v-if="user" class="text-gray-100 hover:text-indigo-400">Log Out</li>
+      <li @click="client.auth.signOut()" v-if="user" class="text-gray-100 border p-2 rounded border-gray-300 hover:text-indigo-400">Log Out<br/> {{user.email}}</li>
             <button v-else class="text-gray-100 hover:text-indigo-400">Log In</button>
         <li>
         </li>
