@@ -1,5 +1,7 @@
 <script setup>
-const props = defineProps(['isActive'])
+    const props = defineProps({
+        disabled: Boolean
+    })
 const supabase = useSupabaseClient()
 
 const creds = reactive({

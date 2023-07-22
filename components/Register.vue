@@ -7,11 +7,11 @@ const creds = reactive({
 })
 
 const signUp = async () => {
-    const { user, error } = await supabase.auth.signUp({
-        email: 'ronnlats@gmail.com',
-        password: '123456',
+    const { data, error } = await supabase.auth.signUp({
+        email: creds.email,
+        password: creds.password
     })
-    console.log(user)
+    console.log(data)
     console.log(error)
 
 }
@@ -31,7 +31,7 @@ const signUp = async () => {
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Create and account
                     </h1>
-                    <form @submit.prevent="handleRegistration" class="space-y-4 md:space-y-6">
+                    <form @submit.prevent="signUp" class="space-y-4 md:space-y-6">
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                                 email</label>
