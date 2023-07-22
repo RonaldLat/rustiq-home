@@ -1,4 +1,5 @@
 <script setup>
+const props = defineProps(['isActive'])
 const supabase = useSupabaseClient()
 
 const creds = reactive({
